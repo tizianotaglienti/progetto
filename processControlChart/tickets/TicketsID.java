@@ -26,11 +26,9 @@ public class TicketsID {
 
    public static JSONArray readJsonArrayFromUrl(String url) throws IOException, JSONException {
       InputStream is = new URL(url).openStream();
-      try {
-         BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+      try (BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))){
          String jsonText = readAll(rd);
-         JSONArray json = new JSONArray(jsonText);
-         return json;
+         return jsonText;
        } finally {
          is.close();
        }
@@ -38,11 +36,9 @@ public class TicketsID {
 
    public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
       InputStream is = new URL(url).openStream();
-      try {
-         BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+      try (BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))){
          String jsonText = readAll(rd);
-         JSONObject json = new JSONObject(jsonText);
-         return json;
+         return jsonText;
        } finally {
          is.close();
        }
@@ -76,8 +72,7 @@ public class TicketsID {
                         
             logger.info(key);
             logger.info(res);
-//            System.err.println(key);            
-//            System.err.println(res);
+
                         
          }  
                   
