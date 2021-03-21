@@ -28,7 +28,7 @@ public class TicketsID {
       InputStream is = new URL(url).openStream();
       try (BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))){
          String jsonText = readAll(rd);
-         return jsonText;
+         return (JSONArray) jsonText;
        } finally {
          is.close();
        }
@@ -38,7 +38,7 @@ public class TicketsID {
       InputStream is = new URL(url).openStream();
       try (BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))){
          String jsonText = readAll(rd);
-         return jsonText;
+         return (JSONOBject) jsonText;
        } finally {
          is.close();
        }
